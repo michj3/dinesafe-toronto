@@ -1,52 +1,38 @@
 #### Preamble ####
-# Purpose: Simulates a dataset of Australian electoral divisions, including the 
-  #state and party that won each division.
-# Author: Rohan Alexander
-# Date: 26 September 2024
-# Contact: rohan.alexander@utoronto.ca
-# License: MIT
-# Pre-requisites: The `tidyverse` package must be installed
-# Any other information needed? Make sure you are in the `starter_folder` rproj
+# Purpose: Simulate possible observations with the US polling dataset
+# Author: Michelle Ji
+# Date: 10 November 2024
+# Contact: michelle.ji@mail.utoronto.ca
+# Prerequisites: access and read dinesafe_data and/or 02-analysis_data
 
-
-#### Workspace setup ####
+#### Workplace setup ####
 library(tidyverse)
-set.seed(853)
 
+#### Simulation ####
+establishments <- c("Food Depot", "Food Take out", "Restaurant", "Food Store
+                    (Convenience/Variety)", "Food Processing Plant", "Food Caterer",
+                    "Community Kitchen (Meal Program)", "Boarding / Lodging Home - Kitchen",
+                    "Bakery", "Cafeteria - Private Access","Food Bank","Food Court Vendor",
+                    "Supermarket", "Cocktail Bar / Beverage Room", "Retirement Homes(Licensed)",
+                    "Butcher Shop","Fish Shop", "Child Care - Food Preparation", 
+                    "Child Care - Catered","Serving Kitchen", "Institutional Food Services",
+                    "Mobile Food Preparation Premises","Centralized Kitchen",
+                    "Banquet Facility","Cafeteria - Public Access", "Private Club",
+                    "Commissary", "Food Vending Facility", "Ice Cream / Yogurt Vendors",
+                    "Student Nutrition Site","College / University Food Services",
+                    "Rest Home", "Bake Shop","Nursing Home / Home for the Aged",
+                    "Elementary School Food Services","Secondary School Food Services",
+                    "Hospitals & Health Facilities", "Food Cart","Refreshment Stand (Stationary)",
+                    "Other Educational Facility Food Services","Church Banquet Facility",
+                    "Catering Vehicle", "Flea Market", "Hot Dog Cart")
+inspections <- c(1,2,3)
+severity_levels <- c("M - Minor", "C - Crucial", "S - Significant")
 
-#### Simulate data ####
-# State names
-states <- c(
-  "New South Wales",
-  "Victoria",
-  "Queensland",
-  "South Australia",
-  "Western Australia",
-  "Tasmania",
-  "Northern Territory",
-  "Australian Capital Territory"
+set.seed(3)
+simulated_dinesafe_data <- tibble(
+  "Establishment Type" = sample(establishments, size = 100, replace = TRUE),
+  "Minimum Inspections Per Year" = sample(inspections, size = 100, replace = TRUE),
+  "Severity Level" = sample(severity_levels, size = 100, replace = TRUE)
 )
 
-# Political parties
-parties <- c("Labor", "Liberal", "Greens", "National", "Other")
-
-# Create a dataset by randomly assigning states and parties to divisions
-analysis_data <- tibble(
-  division = paste("Division", 1:151),  # Add "Division" to make it a character
-  state = sample(
-    states,
-    size = 151,
-    replace = TRUE,
-    prob = c(0.25, 0.25, 0.15, 0.1, 0.1, 0.1, 0.025, 0.025) # Rough state population distribution
-  ),
-  party = sample(
-    parties,
-    size = 151,
-    replace = TRUE,
-    prob = c(0.40, 0.40, 0.05, 0.1, 0.05) # Rough party distribution
-  )
-)
-
-
-#### Save data ####
-write_csv(analysis_data, "data/00-simulated_data/simulated_data.csv")
+write_csv(simulated_dinesafe_data, "data/00-simulated_data")
