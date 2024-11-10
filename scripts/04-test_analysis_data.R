@@ -1,69 +1,45 @@
 #### Preamble ####
-# Purpose: Tests... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 26 September 2024 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
-# License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
-
+# Purpose: Test analysis data 
+# Author: Michelle Ji
+# Date: 10 November 2024
+# Contact: michelle.ji@mail.utoronto.ca
+# Prerequisites: access and read 02-analysis_data.R
 
 #### Workspace setup ####
 library(tidyverse)
 library(testthat)
 
-data <- read_csv("data/02-analysis_data/analysis_data.csv")
-
-
-#### Test data ####
-# Test that the dataset has 151 rows - there are 151 divisions in Australia
-test_that("dataset has 151 rows", {
-  expect_equal(nrow(analysis_data), 151)
+#### Test ####
+# test that there are 44 types of food establishments
+test_that("There are exactly 44 types of food establishments", {
+  num_types <- length(unique(dinesafe_data$establishment_type))
+  expect_equal(num_types, 44)
 })
 
-# Test that the dataset has 3 columns
-test_that("dataset has 3 columns", {
-  expect_equal(ncol(analysis_data), 3)
+# test that minimum inspections is 1, maximum is 3
+test_that("minimum inspections are between 1 and 3", {
+  expect_true(all(dinesafe_data$min_inspections >= 1))
+  expect_true(all(dinesafe_data$min_inspections <= 3))
 })
 
-# Test that the 'division' column is character type
-test_that("'division' is character", {
-  expect_type(analysis_data$division, "character")
+# test that there are only 3 severity levels
+test_that("There are exactly 3 severity levels", {
+  num_severity_levels <- length(unique(dinesafe_data$severity))
+  expect_equal(num_severity_levels, 3)
 })
 
-# Test that the 'party' column is character type
-test_that("'party' is character", {
-  expect_type(analysis_data$party, "character")
+# test classes
+test_that("Column types are as expected", {
+  expect_true(is.character(dinesafe_data$severity))
+  expect_true(is.character(dinesafe_data$establishment_type))
+  expect_true(is.numeric(dinesafe_data$min_inspections))
 })
 
-# Test that the 'state' column is character type
-test_that("'state' is character", {
-  expect_type(analysis_data$state, "character")
+# test for missing values
+test_that("No missing values in critical columns", {
+  expect_false(any(is.na(dinesafe_data$severity))) 
+  expect_false(any(is.na(dinesafe_data$establishment_type))) 
+  expect_false(any(is.na(dinesafe_data$min_inspections)))
 })
 
-# Test that there are no missing values in the dataset
-test_that("no missing values in dataset", {
-  expect_true(all(!is.na(analysis_data)))
-})
-
-# Test that 'division' contains unique values (no duplicates)
-test_that("'division' column contains unique values", {
-  expect_equal(length(unique(analysis_data$division)), 151)
-})
-
-# Test that 'state' contains only valid Australian state or territory names
-valid_states <- c("New South Wales", "Victoria", "Queensland", "South Australia", "Western Australia", 
-                  "Tasmania", "Northern Territory", "Australian Capital Territory")
-test_that("'state' contains valid Australian state names", {
-  expect_true(all(analysis_data$state %in% valid_states))
-})
-
-# Test that there are no empty strings in 'division', 'party', or 'state' columns
-test_that("no empty strings in 'division', 'party', or 'state' columns", {
-  expect_false(any(analysis_data$division == "" | analysis_data$party == "" | analysis_data$state == ""))
-})
-
-# Test that the 'party' column contains at least 2 unique values
-test_that("'party' column contains at least 2 unique values", {
-  expect_true(length(unique(analysis_data$party)) >= 2)
-})
+# note: the data may contain duplicate rows but they are for different dinesafe violations
