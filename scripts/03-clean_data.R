@@ -3,6 +3,7 @@
 # Author: Michelle Ji
 # Date: 10 November 2024
 # Contact: michelle.ji@mail.utoronto.ca
+# Prerequisites: access and read raw_dinesafe_data
 
 #### Workplace setup ####
 library(tidyverse)
