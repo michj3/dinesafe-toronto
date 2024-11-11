@@ -32,3 +32,4 @@ dinesafe_data <- dinesafe_data |>
 
 #### Save as cleaned data ####
 write_csv(dinesafe_data, "data/02-analysis_data.csv")
+write_parquet(simulated_dinesafe_data, "data/00-simulated_data.parquet")
