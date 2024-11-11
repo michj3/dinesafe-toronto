@@ -31,4 +31,4 @@ dinesafe_data <- dinesafe_data |>
   filter(severity != "NA - Not Applicable")
 
 #### Save as cleaned data ####
-write_csv(dinesafe_data, "data/02-analysis_data")
+write_csv(dinesafe_data, "data/02-analysis_data.csv")
