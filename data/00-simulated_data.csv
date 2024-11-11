@@ -1,0 +1,105 @@
+Establishment Type,Minimum Inspections Per Year,Severity Level
+Food Processing Plant,2,M - Minor
+Food Court Vendor,3,S - Significant
+Refreshment Stand (Stationary),1,S - Significant
+Secondary School Food Services,2,M - Minor
+Other Educational Facility Food Services,1,C - Crucial
+Flea Market,2,C - Crucial
+College / University Food Services,1,C - Crucial
+Boarding / Lodging Home - Kitchen,1,C - Crucial
+Serving Kitchen,2,S - Significant
+Cafeteria - Private Access,2,S - Significant
+Other Educational Facility Food Services,3,S - Significant
+Other Educational Facility Food Services,1,M - Minor
+Boarding / Lodging Home - Kitchen,1,C - Crucial
+Hospitals & Health Facilities,3,C - Crucial
+Food Take out,1,C - Crucial
+Ice Cream / Yogurt Vendors,1,S - Significant
+Hot Dog Cart,2,M - Minor
+Food Processing Plant,2,S - Significant
+Other Educational Facility Food Services,1,S - Significant
+Hospitals & Health Facilities,1,C - Crucial
+Bakery,1,M - Minor
+Bakery,2,M - Minor
+Child Care - Food Preparation,1,S - Significant
+Butcher Shop,3,M - Minor
+Cafeteria - Public Access,1,M - Minor
+Food Court Vendor,1,S - Significant
+Other Educational Facility Food Services,2,S - Significant
+Mobile Food Preparation Premises,2,M - Minor
+Food Caterer,2,S - Significant
+Other Educational Facility Food Services,1,C - Crucial
+Retirement Homes(Licensed),3,M - Minor
+Cafeteria - Private Access,2,M - Minor
+Food Bank,3,C - Crucial
+Ice Cream / Yogurt Vendors,2,S - Significant
+Centralized Kitchen,3,S - Significant
+Restaurant,1,C - Crucial
+Hospitals & Health Facilities,1,S - Significant
+Boarding / Lodging Home - Kitchen,1,C - Crucial
+Cafeteria - Private Access,2,C - Crucial
+"Food Store
+                    (Convenience/Variety)",2,M - Minor
+Bake Shop,3,M - Minor
+Child Care - Catered,1,C - Crucial
+Food Cart,2,S - Significant
+Private Club,2,M - Minor
+Community Kitchen (Meal Program),1,S - Significant
+Food Depot,3,S - Significant
+Bakery,1,C - Crucial
+Church Banquet Facility,3,S - Significant
+Food Processing Plant,1,S - Significant
+Food Caterer,2,C - Crucial
+College / University Food Services,1,M - Minor
+Other Educational Facility Food Services,3,C - Crucial
+Flea Market,2,S - Significant
+Catering Vehicle,3,C - Crucial
+Secondary School Food Services,2,S - Significant
+Cocktail Bar / Beverage Room,3,M - Minor
+Bakery,1,S - Significant
+Restaurant,1,C - Crucial
+"Food Store
+                    (Convenience/Variety)",1,S - Significant
+Food Court Vendor,3,M - Minor
+Fish Shop,1,C - Crucial
+Secondary School Food Services,2,S - Significant
+Food Cart,3,M - Minor
+Bake Shop,2,C - Crucial
+Supermarket,1,M - Minor
+Food Take out,2,M - Minor
+Food Take out,2,C - Crucial
+Banquet Facility,1,M - Minor
+Community Kitchen (Meal Program),2,C - Crucial
+Cafeteria - Private Access,2,C - Crucial
+Food Cart,3,S - Significant
+Child Care - Catered,2,S - Significant
+Bake Shop,1,S - Significant
+Cafeteria - Private Access,1,M - Minor
+Food Take out,3,M - Minor
+Food Bank,2,M - Minor
+Private Club,2,M - Minor
+"Food Store
+                    (Convenience/Variety)",2,S - Significant
+Butcher Shop,2,M - Minor
+Food Caterer,3,C - Crucial
+Centralized Kitchen,1,C - Crucial
+Community Kitchen (Meal Program),2,S - Significant
+Butcher Shop,2,S - Significant
+Elementary School Food Services,2,S - Significant
+Banquet Facility,1,C - Crucial
+Food Court Vendor,2,C - Crucial
+"Food Store
+                    (Convenience/Variety)",3,M - Minor
+Ice Cream / Yogurt Vendors,3,S - Significant
+Hospitals & Health Facilities,2,M - Minor
+Cafeteria - Private Access,1,S - Significant
+Community Kitchen (Meal Program),1,M - Minor
+Food Vending Facility,2,M - Minor
+Commissary,1,M - Minor
+Bakery,2,M - Minor
+Food Bank,3,M - Minor
+Commissary,3,S - Significant
+Food Processing Plant,2,C - Crucial
+Retirement Homes(Licensed),3,C - Crucial
+Church Banquet Facility,1,M - Minor
+Cocktail Bar / Beverage Room,3,S - Significant
