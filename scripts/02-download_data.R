@@ -27,4 +27,4 @@ raw_dinesafe_data <- filter(datastore_resources, row_number()==1) %>% get_resour
 raw_dinesafe_data
 
 #### Save data ####
-write_csv(raw_dinesafe_data, "data/01-raw_data")
+write_csv(raw_dinesafe_data, "data/01-raw_data.csv")
