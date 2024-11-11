@@ -35,4 +35,4 @@ simulated_dinesafe_data <- tibble(
   "Severity Level" = sample(severity_levels, size = 100, replace = TRUE)
 )
 
-write_csv(simulated_dinesafe_data, "data/00-simulated_data")
+write_csv(simulated_dinesafe_data, "data/00-simulated_data.csv")
