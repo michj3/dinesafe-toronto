@@ -9,6 +9,8 @@
 library(tidyverse)
 library(VGAM)
 library(car)
+dinesafe_data <- read_csv("02-analysis_data.csv")
+
 
 #### Model ####
 # convert categorical variables into factor
