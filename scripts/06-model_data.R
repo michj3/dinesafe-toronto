@@ -30,7 +30,7 @@ summary(dinesafe_model)
 # do not have any relationship with each other
 
 # linearity in log odds -- we see a linear relationship with the numerical variable
-# of min_inspections to log odds
+# of min_inspections to log odds. the vertical lines are due to the fact that min_inspections only takes 3 possible distinct values 
 # we likely can only use this to check since the other predictor is categorical
 
 dinesafe_data$min_inspections <- as.numeric(as.character(dinesafe_data$min_inspections))
