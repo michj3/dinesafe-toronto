@@ -1,0 +1,101 @@
+Establishment Type,Minimum Inspections Per Year,Severity Level
+Institutional,1,S - Significant
+Fast Food,2,M - Minor
+Industrial,2,S - Significant
+Industrial,1,S - Significant
+Fast Food,1,C - Crucial
+Grocery,1,M - Minor
+Industrial,2,M - Minor
+Fast Food,1,S - Significant
+Institutional,3,M - Minor
+Fast Food,1,M - Minor
+Institutional,1,S - Significant
+Industrial,2,S - Significant
+Institutional,2,M - Minor
+Institutional,2,S - Significant
+Institutional,1,C - Crucial
+Formal Dining,3,M - Minor
+Formal Dining,2,M - Minor
+Fast Food,3,C - Crucial
+Formal Dining,2,S - Significant
+Industrial,3,S - Significant
+Industrial,1,C - Crucial
+Grocery,1,S - Significant
+Fast Food,1,C - Crucial
+Grocery,2,C - Crucial
+Institutional,2,M - Minor
+Grocery,3,M - Minor
+Institutional,1,C - Crucial
+Fast Food,2,S - Significant
+Industrial,2,M - Minor
+Formal Dining,1,S - Significant
+Grocery,3,S - Significant
+Industrial,1,C - Crucial
+Formal Dining,3,S - Significant
+Fast Food,1,S - Significant
+Institutional,2,C - Crucial
+Fast Food,1,M - Minor
+Formal Dining,3,C - Crucial
+Formal Dining,2,S - Significant
+Formal Dining,3,C - Crucial
+Formal Dining,2,S - Significant
+Institutional,3,M - Minor
+Fast Food,1,S - Significant
+Institutional,1,C - Crucial
+Grocery,1,S - Significant
+Fast Food,3,M - Minor
+Industrial,1,C - Crucial
+Formal Dining,2,S - Significant
+Grocery,3,M - Minor
+Industrial,2,C - Crucial
+Industrial,1,M - Minor
+Fast Food,2,M - Minor
+Formal Dining,2,C - Crucial
+Industrial,1,M - Minor
+Formal Dining,2,C - Crucial
+Institutional,2,C - Crucial
+Fast Food,3,S - Significant
+Institutional,2,S - Significant
+Fast Food,1,S - Significant
+Fast Food,1,M - Minor
+Grocery,3,M - Minor
+Formal Dining,2,M - Minor
+Fast Food,2,M - Minor
+Fast Food,2,S - Significant
+Institutional,2,M - Minor
+Grocery,3,C - Crucial
+Fast Food,1,C - Crucial
+Industrial,2,S - Significant
+Formal Dining,2,S - Significant
+Institutional,2,S - Significant
+Grocery,1,C - Crucial
+Industrial,2,C - Crucial
+Industrial,3,M - Minor
+Grocery,3,S - Significant
+Institutional,2,M - Minor
+Institutional,1,S - Significant
+Fast Food,1,M - Minor
+Industrial,2,M - Minor
+Formal Dining,1,M - Minor
+Grocery,2,M - Minor
+Fast Food,3,M - Minor
+Formal Dining,3,S - Significant
+Grocery,2,C - Crucial
+Grocery,3,C - Crucial
+Institutional,1,M - Minor
+Formal Dining,3,S - Significant
+Fast Food,1,C - Crucial
+Fast Food,3,C - Crucial
+Formal Dining,3,M - Minor
+Institutional,1,M - Minor
+Industrial,2,S - Significant
+Fast Food,2,S - Significant
+Institutional,2,M - Minor
+Formal Dining,2,S - Significant
+Fast Food,3,S - Significant
+Fast Food,3,S - Significant
+Institutional,3,S - Significant
+Institutional,1,C - Crucial
+Grocery,2,M - Minor
+Industrial,2,S - Significant
+Institutional,2,M - Minor
