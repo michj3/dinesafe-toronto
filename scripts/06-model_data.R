@@ -45,6 +45,8 @@ plot(dinesafe_data$min_inspections, log_odds,
 #if we look at the correlation, the only concern is between min_inspections3 and min_inspections2. 
 # however, they are the same variable, R is just treating them as different for the sake of their 
 # different levels. we can say that there is not significant multicollinearity with the model. 
+
+#make dummies so that we can look at establishment_type as "numerical" to look at correlation/multicollinearity
 dummies <- model.matrix(severity ~ min_inspections + establishment_type - 1, data = dinesafe_data)
 lm_model <- lm(severity ~ dummies, data = dinesafe_data)
 cor(dummies)
