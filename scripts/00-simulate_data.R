@@ -7,24 +7,10 @@
 
 #### Workplace setup ####
 library(tidyverse)
+library(arrow)
 
 #### Simulation ####
-establishments <- c("Food Depot", "Food Take out", "Restaurant", "Food Store
-                    (Convenience/Variety)", "Food Processing Plant", "Food Caterer",
-                    "Community Kitchen (Meal Program)", "Boarding / Lodging Home - Kitchen",
-                    "Bakery", "Cafeteria - Private Access","Food Bank","Food Court Vendor",
-                    "Supermarket", "Cocktail Bar / Beverage Room", "Retirement Homes(Licensed)",
-                    "Butcher Shop","Fish Shop", "Child Care - Food Preparation", 
-                    "Child Care - Catered","Serving Kitchen", "Institutional Food Services",
-                    "Mobile Food Preparation Premises","Centralized Kitchen",
-                    "Banquet Facility","Cafeteria - Public Access", "Private Club",
-                    "Commissary", "Food Vending Facility", "Ice Cream / Yogurt Vendors",
-                    "Student Nutrition Site","College / University Food Services",
-                    "Rest Home", "Bake Shop","Nursing Home / Home for the Aged",
-                    "Elementary School Food Services","Secondary School Food Services",
-                    "Hospitals & Health Facilities", "Food Cart","Refreshment Stand (Stationary)",
-                    "Other Educational Facility Food Services","Church Banquet Facility",
-                    "Catering Vehicle", "Flea Market", "Hot Dog Cart")
+establishments <- c("Formal Dining", "Fast Food", "Grocery", "Industrial", "Institutional")
 inspections <- c(1,2,3)
 severity_levels <- c("M - Minor", "C - Crucial", "S - Significant")
 
@@ -36,3 +22,4 @@ simulated_dinesafe_data <- tibble(
 )
 
 write_csv(simulated_dinesafe_data, "data/00-simulated_data.csv")
+write_parquet(simulated_dinesafe_data, "data/00-simulated_data.parquet")
