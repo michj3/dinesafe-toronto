@@ -16,7 +16,7 @@ dinesafe_data <- read_csv("data/02-analysis_data.csv")
 # convert categorical variables into factor
 dinesafe_data$severity <- as.factor(dinesafe_data$severity) 
 dinesafe_data$establishment_type <- as.factor(dinesafe_data$establishment_type)
-dinesafe_data$min_inspections <- as.factor(dinesafe_data$min_inspections)
+
 
 # Relevel to use "minor" as reference level
 dinesafe_data$severity <- relevel(dinesafe_data$severity, ref = "M - Minor")
