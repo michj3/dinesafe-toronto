@@ -11,7 +11,7 @@ library(arrow)
 
 #### Data cleaning ####
 # read raw data file in 
-raw_dinesafe_data <- read_csv("data/01-raw_data")
+raw_dinesafe_data <- read_csv("data/01-raw_data.csv")
 
 # pull out variables of interest
 dinesafe_data <- raw_dinesafe_data |>
@@ -64,7 +64,7 @@ dinesafe_data <- dinesafe_data |>
 dinesafe_data <- dinesafe_data |>
   mutate(establishment_type = case_when(
     establishment_type %in% c("Food Take Out", "Food Court Vendor", "Ice Cream / Yogurt Vendors", "Food Cart", "Hot Dog Cart",
-                              "Hot Dog Cart", "Refreshment Stand (Stationary)", "Mobile Food Preparation Premises") ~ "Fast Food",
+                              "Hot Dog Cart", "Refreshment Stand (Stationary)", "Mobile Food Preparation Premises", "Catering Vehicle") ~ "Fast Food",
     TRUE ~ establishment_type 
   ))
 
