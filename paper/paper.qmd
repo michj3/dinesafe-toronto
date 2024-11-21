@@ -6,7 +6,7 @@ author:
 thanks: "Code and data are available at: https://github.com/michj3/dinesafe-toronto"
 date: today
 date-format: long
-abstract: "This study aims to explore the relationship between various factors, such as minimum inspections per year and type of food establishment, and the severity of DineSafe violations in Toronto. Inspection data from June 2022 to June 2024 were compiled and analyzed through a multinomial logistic regression model. Key findings include specific types of food establishments, such as formal dining and fast food, and increasing the number of minimum inspections had higher likelihoods of a more severe infraction when compared to a baseline “minor” violation. Implications from this study can assist to raise awareness among both consumers and business owners, potentially leading to stricter adherence to health guidelines or policy changes aimed at improving and maintaining public health."
+abstract: "This study aims to understand the relationship between various factors, such as minimum inspections per year and type of food establishment, and the severity of DineSafe violations in Toronto. Inspection data from June 2022 to June 2024 were compiled and analyzed through a multinomial logistic regression model. Major findings include specific types of food establishments, such as formal dining and fast food, and increasing the number of minimum inspections had higher likelihoods of a more severe infraction when compared to a baseline “minor” violation. Implications from this study can assist to raise awareness among both consumers and business owners, potentially leading to stricter adherence to health guidelines or policy changes aimed at improving and maintaining public health."
 format: pdf
 number-sections: true
 bibliography: references.bib
@@ -29,9 +29,9 @@ dinesafe_data <- read_csv("data/02-analysis_data.csv")
 
 # Introduction 
 
-Various public health measures have recently been put into place as a means to ensure public safety and sanitation. Specific to Toronto, DineSafe is Toronto Public Health’s food inspection program and is based on provincial and municipal regulations. Each establishment that processes, manufactures, prepares, stores, or serves food must be registered for inspection. As such, the inspection process and frequency will likely depend on the type of food establishment and the level of risk associated with the food handled. Each inspection follows a set of guidelines, often assessing the food temperature control, contamination, pest control, employee hygiene, maintenance of sanitation in public areas, and waste disposal [@foodsafety]. Infraction levels are categorized by “minor”, “crucial”, and “significant”, in increasing severity order. Depending on the infraction level, results can vary from a verbal notice to closure of the establishment [@eohu]. This paper examines the factors influencing the severity of DineSafe violations, addressing a gap in public knowledge to provide valuable insights for food establishments and policymakers. By understanding these factors, targeted actions can be taken to enhance public health outcomes for the citizens of Toronto.
+Various public health measures have recently been put into place as a means to ensure public safety and sanitation. Specific to Toronto, DineSafe is Toronto Public Health’s food inspection program and is based on provincial and municipal regulations. Each establishment that processes, manufactures, prepares, stores, or serves food must be registered for inspection. As such, the inspection process and frequency will likely depend on the type of food establishment and the level of risk associated with the food handled. Each inspection follows a set of guidelines, often assessing the food temperature control, contamination, pest control, employee hygiene, maintenance of sanitation in public areas, and waste disposal [@foodsafety]. Infraction levels are categorized by “minor”, “crucial”, and “significant”, in increasing severity order. Depending on the infraction level, results can vary from a verbal notice to closure of the establishment [@eohu]. This paper examines the factors influencing the severity of DineSafe violations, addressing a gap in public knowledge to provide useful insights for food establishments and policymakers. By understanding these factors, targeted actions can be taken to enhance public health outcomes for the citizens of Toronto.
 
-The estimand in the paper is the relationship between factors such as the minimum number of inspections per year and the type of food establishment on the severity of a DineSafe violation. By analyzing the dataset and developing a multinomial logistic regression model, the primary objective is to identify the factors that influence the severity levels of DineSafe violations. This knowledge can raise awareness and guide employers, employees and policymakers to adopt improved habits or implement changes in policies. One main finding is that specific food establishments, such as formal dining, fast food, and industrial food preparation places, had a higher likelihood of having a “crucial” violation over a “minor” violation. This can lead to serious consequences, such as an increased likelihood of establishment closure. Therefore, it is crucial for business owners to be aware of these factors so they can take proactive measures to address potential issues and violations. 
+The estimand in the paper is the relationship between factors such as the minimum number of inspections per year and the type of food establishment on the severity of a DineSafe violation. By analyzing the dataset and developing a multinomial logistic regression model, the primary objective is to identify the factors that influence the severity levels of DineSafe violations. This knowledge can raise awareness and guide employers, employees and policymakers to adopt improved habits or implement changes in policies. One main finding is that specific food establishments, such as formal dining, fast food, and industrial food preparation places, had a higher likelihood of having a “crucial” violation over a “minor” violation. This can lead to serious consequences, such as an increased likelihood of establishment closure. Therefore, it is important for business owners to be aware of these factors so they can take proactive measures to address potential issues and violations. 
 
 This paper is organized further into five main sections. @sec-data discusses how the dataset was measured and important variables of interest. @sec-model describes the model used for analysis and potential weaknesses. @sec-results explores the main findings of the model and @sec-discussion highlights real world implications and possible future courses of action. @sec-appendices discusses more in-depth how the data was cleaned for modeling and a discussion on observational data in this dataset, emphasizing its significance and the implications of the findings. @sec-appendices also includes a datasheet for the dataset. 
 
@@ -49,7 +49,7 @@ The dataset includes data containing inspection details of food establishments f
 #| label: tbl-1
 #| echo: false
 #| eval: true
-#| tbl-cap: "First Few Observations of the DineSafe Dataset"
+#| tbl-cap: "First few observations of the cleaned DineSafe dataset used for modeling and analysis"
 #| warning: false
 
 head(dinesafe_data) |>
@@ -64,11 +64,11 @@ The dataset was cleaned analyzed using the statistical programming software R an
 	
 The analysis dataset is focused on 1 response variable, severity level, and 2 predictor variables, the minimum number of inspections per year and the food establishment type. 
 
-The severity level variable is a categorical variable with three levels: “C” for crucial, “S” for significant, and “M” for minor. The most severe infraction is “crucial” and the least severe is “minor”. Each level corresponds to the level of sanitation violation that the food establishment made and will correspond with different courses of action and outcome. @fig-1 details the distribution of the different infraction levels. From @fig-1, the most frequent type of infraction level is minor and crucial infractions of regulations are the least frequent. From a public health perspective, this is a positive sign, as it suggests that most food establishments maintain relatively high standards of sanitation. This is reassuring for consumers, as it indicates that food establishments are generally safe and comply with health regulations.
+The severity level variable is a categorical variable with three levels: “C” for crucial, “S” for significant, and “M” for minor. The most severe infraction is “crucial” and the least severe is “minor”. Each level corresponds to the level of sanitation violation that the food establishment made and will correspond with different courses of action and outcome. @fig-1 details the distribution of the different infraction levels. From @fig-1, the most frequent type of infraction level is "minor" and "crucial" infractions of regulations are the least frequent. From a public health perspective, this is a positive sign, as it suggests that most food establishments maintain relatively high standards of sanitation. This is reassuring for consumers, as it indicates that food establishments are generally safe and comply with health regulations.
 
 ```{r}
 #| label: fig-1
-#| fig-cap: "Distribution of severity infraction level"
+#| fig-cap: "Distribution of frequency of severity infraction levels noted in DineSafe inspections throughout Toronto"
 #| echo: false
 
 top_severity <- dinesafe_data |>
@@ -87,7 +87,7 @@ The variable focusing on the minimum number of inspections per year is a quantit
 
 ```{r}
 #| label: fig-2
-#| fig-cap: "Distribution of minimum inspections per year, with mean and median."
+#| fig-cap: "Distribution of minimum inspections per year a food establishment receives, with mean and median."
 #| echo: false
 
 mean_inspections <- mean(dinesafe_data$min_inspections, na.rm = TRUE)
@@ -113,7 +113,7 @@ ggplot(dinesafe_data, aes(x = as.factor(min_inspections))) +
 #| label: tbl-2
 #| echo: false
 #| eval: true
-#| tbl-cap: "Mean and Median Number of Inspections by Establishment Type"
+#| tbl-cap: "Mean and median number of inspections food establishments in Toronto receive through the DineSafe program"
 #| warning: false
 
 mean_inspections <- mean(dinesafe_data$min_inspections, na.rm = TRUE)
@@ -137,7 +137,7 @@ The variable focusing on food establishment type is a qualitative variable that 
 
 ```{r}
 #| label: fig-3
-#| fig-cap: "Top 10 Most Frequent Food Establishment Types"
+#| fig-cap: "Top 10 most frequent food establishment types inspected through DineSafe in Toronto"
 #| echo: false
 
 top_establishments <- dinesafe_data |>
@@ -251,7 +251,7 @@ To check the validity of the model used, it’s important to check for independe
 
 ```{r}
 #| label: fig-4
-#| fig-cap: "Linearity Check for Log-Odds"
+#| fig-cap: "Linearity check for log-odds for multinomial logistic regression model for DineSafe modeling"
 #| echo: false
 
 dinesafe_data$min_inspections <- as.numeric(as.character(dinesafe_data$min_inspections))
@@ -265,7 +265,7 @@ One thing to note is the distinct observations that form almost vertical lines. 
 
 ## Model Limitations {#sec-model-limitations}
 
-Some limitations exist with the model used. First, the DineSafe program does not reveal how they make their inspections and if it is geographically coordinated. If certain types of establishments are clustered geographically and DineSafe inspectors inspect these clusters at the same time, the independence assumption might be violated, potentially biasing results. Additionally, since there are 46 different food establishment types in the dataset, categorizing them into 5 main categories made the modeling simpler and easier to draw conclusions. While categorizing establishment type helps manage the complexity, there may still be too many levels relative to the sample size for each category. This can lead to overfitting, especially if some categories have very few observations, reducing the model’s generalizability to new data. Finally, the model is built on data from the DineSafe program, which is specific to Toronto. Its findings may not generalize well to other contexts or geographic areas with different inspection practices or severity grading systems.
+Some limitations exist with the model used. First, the DineSafe program does not make public how they make their inspections and if it is geographically coordinated. If certain types of establishments are clustered geographically and DineSafe inspectors inspect these clusters at the same time, the independence assumption might be violated, potentially biasing results. Additionally, since there are 46 different food establishment types in the dataset, categorizing them into 5 main categories made the modeling simpler and easier to draw conclusions. While categorizing establishment type helps manage the complexity, there may still be too many levels relative to the sample size for each category. This can lead to overfitting, especially if some categories have very few observations, reducing the model’s generalizability to new data. Finally, the model is built on data from the DineSafe program, which is specific to Toronto. Its findings may not generalize well to other contexts or geographic areas with different inspection practices or severity grading systems.
 
 Other potential models include ordinal logistic regression or multilevel logistic regression. Ordinal logistic regression could be useful, as it accounts for the ordering of the response variable, but since there are multiple levels in the complex predictors, it may limit the model's flexibility and interpretability. As for multilevel logistic regression, this model is useful when there is nested data, such as regional inspections that are clustered together. However, in the dataset, there is no geographical location for each observation. Additionally, multilevel models increase complexity and interpretive difficulty. For the purpose of drawing important public health conclusions for the DineSafe program, the multinomial model may draw clearer conclusions without the unnecessary complexity. The multinomial logistic regression model is a balanced choice, providing interpretable results and reasonable predictive power while accommodating categorical data, aligning with the needs of the DineSafe program. 
 
@@ -279,7 +279,7 @@ Model results are summarized in @tbl-3. The labels of "x 1" and "x 2" next to ea
 #| label: tbl-3
 #| echo: false
 #| eval: true
-#| tbl-cap: "Multinomial Logistic Regression Model Summary"
+#| tbl-cap: "Multinomial logistic regression model summary for DineSafe model"
 #| warning: false
 
 modelsummary(dinesafe_model, stars = FALSE, gof_omit = ".*")
@@ -289,7 +289,7 @@ modelsummary(dinesafe_model, stars = FALSE, gof_omit = ".*")
 
 ```{r}
 #| label: fig-6
-#| fig-cap: "Forest Plot of Coefficient Estimates with 95% Confidence"
+#| fig-cap: "Forest plot of coefficient estimates with 95% confidence for multinomial logistic regression model on DineSafe data"
 #| echo: false
 
 library(broom)
@@ -323,7 +323,7 @@ ggplot(plot_data, aes(x = Estimate, y = Variable)) +
 
 From the @fig-6 and @tbl-3, the effect of minimum inspections per year and type of food establishment on severity level of a DineSafe violation can be analyzed. Analysis on the effect that minimum inspections per year has on severity has two levels. The coefficient for at the “crucial” level is -0.273 with a very low p-value (< 2e-16), suggesting that as the number of minimum inspections increases, the log-odds of an establishment being classified as “crucial” compared to “minor” decrease significantly. This implies that higher minimum inspections are less likely to result in a “crucial” rating. When “significant” level is compared to the “minor” level, the coefficient 0.681 with a very low p-value (< 2e-16), indicating that higher minimum inspections increase the log-odds of an establishment being classified as “significant” compared to “minor”. 
 
-Looking at formal dining establishments, the coefficient 0.110 is statistically significant for “crucial”, suggesting that being classified as “formal dining” increases the log-odds of an establishment being rated both crucial compared to minor. Also, the coefficient for "grocery:2" of 0.277 is statistically significant for "signficiant", suggesting that being classified as "grocery" increases the log-odds of an establishment being rated "significant" versus "minor". 
+Looking at formal dining establishments, the coefficient 0.110 is statistically significant for “crucial”, suggesting that being classified as “formal dining” increases the log-odds of an establishment being rated "crucial" compared to "minor". Also, the coefficient for "grocery:2" of 0.277 is statistically significant for "signficiant", suggesting that being classified as "grocery" increases the log-odds of an establishment being rated "significant" versus "minor". 
 
 Institutional food preparation establishments have statistically significant  lower log-odds of being rated “significant” relative to “minor” (p value = 9e−09). There are also a few marginally statistically significant differences. For example, grocery establishments have higher log-odds of being rated “crucial” relative to “minor” (p=0.0538). Fast food establishments also have marginally higher log-odds of being rated “crucial” compared to “minor” (p=0.0594). 
 
@@ -331,7 +331,7 @@ Ultimately, model analysis shows two major results. First, the number of minimum
 
 ```{r}
 #| label: fig-7
-#| fig-cap: "Forest Plot of Coefficient Estimates with 95% Confidence"
+#| fig-cap: "Frequency of minimum inspections per year a food establishment receives broken down by severity of violation"
 #| echo: false
 library(dplyr)
 severity_count <- dinesafe_data |>
@@ -342,8 +342,7 @@ severity_count$severity <- factor(severity_count$severity, levels = c("C - Cruci
 
 ggplot(severity_count, aes(x = min_inspections, y = count, fill = severity)) +
   geom_bar(stat = "identity", position = "stack") +
-  labs(x = "Minimum Inspections per Year", y = "Count of Violations", 
-       title = "Distribution of DineSafe Violation Severity by Minimum Inspections") +
+  labs(x = "Minimum Inspections per Year", y = "Count of Violations") +
   scale_fill_manual(values = c("C - Crucial" = "slateblue", "S - Significant" = "red3", "M - Minor" = "seagreen")) +
   theme_minimal()
 ```
@@ -352,7 +351,7 @@ Second, the type of food establishment also influences the severity level. Speci
 
 ```{r}
 #| label: fig-8
-#| fig-cap: "Predicted Probabilities by Establishment Type"
+#| fig-cap: "Predicted probabilities of the severity of a DineSafe violation by establishment type"
 #| echo: false
 prediction_data <- data.frame(establishment_type = unique(dinesafe_data$establishment_type),
                               min_inspections = mean(as.numeric(as.character(dinesafe_data$min_inspections)), 
@@ -386,15 +385,15 @@ From the model analysis, it is evident that a greater number of minimum inspecti
 
 ## Type of Establishment vs. Severity of Violation {#sec-discussion-type}
 
-The model suggests that formal dining, fast food, and institutional food preparation establishments are more likely to receive "crucial" ratings when compared to "minor" violations. For establishment owners and employees, this finding is particularly significant, as it highlights the importance of maintaining high standards of sanitation in these types of establishments. These establishments typically handle more raw food, such as meats and fresh produce, which increases the potential for foodborne contamination. Therefore, strict adherence to public health guidelines and proper food preparation practices is crucial in ensuring the safety of both employees and customers.
+The model suggests that formal dining, fast food, and institutional food preparation establishments are more likely to receive "crucial" ratings when compared to "minor" violations. For establishment owners and employees, this finding is particularly significant, as it highlights the importance of maintaining high standards of sanitation in these types of establishments. These establishments typically handle more raw food, such as meats and fresh produce, which increases the potential for foodborne contamination. Therefore, strict adherence to public health guidelines and proper food preparation practices is important in ensuring the safety of both employees and customers.
 
-Improper handling of raw foods can lead to the spread of foodborne illnesses, such as salmonella and E. coli, which pose significant public health risks. A disease outbreak traced back to an establishment can severely damage its reputation, leading to public distrust and a decline in customers. The public health consequences are profound, but so are the business repercussions, potentially resulting in a loss of customers and revenue. Given these risks, employees in these establishments should be especially strict about sanitation practices and adher to established health protocols. Awareness of the potential severity of violations may encourage staff to prioritize hygiene and food safety. Additionally, this information can drive the development of more vigorous employee training programs focused on sanitation practices and food safety. Not only will these programs help prevent severe violations and improve public health outcomes, but they will also positively impact business operations. Maintaining a strong DineSafe rating will be visible to the public, and establishments with higher ratings are likely to attract more customers, improving their overall business success. Therefore, investing in better sanitation practices is beneficial for both public health and long-term business sustainability.
+Improper handling of raw foods can lead to the spread of foodborne illnesses, such as salmonella and E. coli, which pose significant public health risks. A disease outbreak traced back to an establishment can severely damage its reputation, leading to public distrust and a decline in customers. The public health consequences are severe, but so are the business repercussions, potentially resulting in a loss of customers and revenue. Given these risks, employees in these establishments should be especially strict about sanitation practices and adher to established health protocols. Awareness of the potential severity of violations may encourage staff to prioritize hygiene and food safety. Additionally, this information can drive the development of more vigorous employee training programs focused on sanitation practices and food safety. Not only will these programs help prevent severe violations and improve public health outcomes, but they will also positively impact business operations. Maintaining a strong DineSafe rating will be visible to the public, and establishments with higher ratings are likely to attract more customers, improving their overall business success. Therefore, investing in better sanitation practices is beneficial for both public health and long-term business sustainability.
 
 The findings not only have implications for business owners but also for the inspectors responsible for monitoring food safety. Given the identified association between certain types of establishments—such as formal dining, fast food, and institutional food preparation—and a higher likelihood of receiving severe DineSafe violations, inspectors can use this information to adopt a more strict approach when inspecting these establishments. By recognizing that these types of businesses are more prone to severe violations, inspectors can focus their attention more closely on areas of higher risk, such as the handling of raw meats and produce, food storage, and sanitation practices. More rigorous inspection process not only minimizes the chances of a serious health violation occurring but also strengthens the overall public health framework by ensuring that establishments are held accountable for maintaining high standards of cleanliness and food safety. This can reinforce trust in the regulatory system and ensure that the DineSafe program remains a reliable indicator of a restaurant's commitment to health and safety. 
 
 ## Weaknesses and Future Implications {#sec-discussion-future}
 
-While the results provide valuable insights for addressing public health practices in food establishments, the DineSafe model and its implications are specific to Toronto, as the data used in the analysis was collected from this city. Caution should be exercised when attempting to generalize these findings to other cities, as different regions may yield varying outcomes. Additionally, it is important to note that the model identifies associations between variables but does not establish causation, and should not be used as cause-and-effect ties. Moreover, potential biases in the data collection process cannot be ruled out. For example, individual inspector tendencies—such as one inspector being consistently stricter than others—could influence the severity of violations assigned, potentially skewing the results. 
+While the results provide important insights for addressing public health practices in food establishments, the DineSafe model and its implications are specific to Toronto, as the data used in the analysis was collected from this city. Caution should be exercised when attempting to generalize these findings to other cities, as different regions may yield varying outcomes. Additionally, it is important to note that the model identifies associations between variables but does not establish causation, and should not be used as cause-and-effect ties. Moreover, potential biases in the data collection process cannot be ruled out. For example, individual inspector tendencies—such as one inspector being consistently stricter than others—could influence the severity of violations assigned, potentially skewing the results. 
 
 While all cities have similar programs to inspect public health and sanitation measures, one potential future step is to create more universal policies across a given province or country. More in-depth analysis could be done when practices and guidelines are standarized, providing more causation links that can be used to improve a region’s public health. Also, public health initiatives and educational campaigns could be developed specifically for establishments that are prone to severe violations, educating both owners and employees on best practices for food safety. This could include targeted training on handling raw foods, sanitation, and compliance with food safety regulations. On the consumer side, making DineSafe data more accessible to the public, such as through a website or app, may also be a future step worth considering as a way to encourage consumers to make more informed decisions and incentivize businesses to strive for better performance.
 
@@ -423,7 +422,7 @@ For the purpose of more simplistic modeling and easier interpretation, additiona
 
 Observational data, while important for understanding real-world phenomena, such as public health and food, comes with several limitations that can impact the robustness of analysis and the conclusions drawn. For example, one significant limitation is the potential for bias in data collection. In the context of DineSafe inspections, bias may arise through individual inspectors that differ in their rigor or interpretation of guidelines set out by Toronto Public Health. There may also be unconscious biases, which can result in inconsistent severity ratings. A study conducted on Dutch food safety services examined the sociological perspective of inspectors, highlighting how individual interpretations of their identity and professional responsibilities can lead to varying levels of rigor and standards in their work [@tandf], ultimately reflecting potential biases in the rigor of inspections, which can affect how DineSafe data is examined and collected. Additionally, observational data often lacks randomization, meaning it may not adequately account for external factors influencing the results, such as differences in inspection timing or the socioeconomic context of a given establishment. 
 
-Observational datasets generally capture only correlations rather than causal relationships, making it difficult to definitively state that one factor directly influences the severity of violations. In the context of DineSafe, it is difficult to state that minimum inspections per year or type of establishment has a true casual relationship with the severity of a violation, although there is a statisticlaly significant correlation. These limitations require careful interpretation of results and underscore the importance of supplementary methods, such as experimental designs or in-depth qualitative research, to validate findings and address gaps in understanding. However, that also poses an issue for DineSafe. Ethically, it would not be feasible to conduct experimental tests, such as A/B testing. the potential manipulation of inspection rigor between groups could lead to inconsistencies in public health protection. For example, if one group of establishments receives stricter inspections than another, consumers dining at less rigorously inspected establishments may face greater health risks that cannot be taken accountability for. Often, A/B testing requires double-blind experiments to account for any biases, raising an ethical concern for public food safety; businesses and consumers might unknowingly participate in an experimental setup, violating principles of informed consent, damaging trust in public health authorities and the integrity of the inspection system.
+Observational datasets generally capture only correlations rather than causal relationships, making it difficult to definitively state that one factor directly influences the severity of violations. In the context of DineSafe, it is difficult to state that minimum inspections per year or type of establishment has a true casual relationship with the severity of a violation, although there is a statisticlaly significant correlation. These limitations require careful interpretation of results and underscore the importance of supplementary methods, such as experimental designs or in-depth qualitative research, to validate findings and address areas that are not as well understood. However, that also poses an issue for DineSafe. Ethically, it would not be feasible to conduct experimental tests, such as A/B testing. the potential manipulation of inspection rigor between groups could lead to inconsistencies in public health protection. For example, if one group of establishments receives stricter inspections than another, consumers dining at less rigorously inspected establishments may face greater health risks that cannot be taken accountability for. Often, A/B testing requires double-blind experiments to account for any biases, raising an ethical concern for public food safety; businesses and consumers might unknowingly participate in an experimental setup, violating principles of informed consent, damaging trust in public health authorities and the integrity of the inspection system.
 
 ## Idealized Survey {#sec-appendices-idealized}
 
@@ -431,7 +430,7 @@ Another way to assess DineSafe as a public health program is through a consumer�
 
 After the sample has been selected with the above methods, the poll itself will be conducted through a survey sent to the chosen participants to reduce interviewer bias, or the effect of the interviewer’s views on the measured responses, which can affect results when face-to-face or phone interviews are utilized [@citeTB]. To also reduce the social desirability effect, the survey must emphasize in the beginning that the respondents’ identity will be kept anonymous to the researchers and the final reported data [@citeStantcheva]. To encourage participation, a financial incentive should be offered for full completion of the poll. Displaying the progress bar and indicating the survey length at the very beginning also helps encourage participants to complete the full questionnaire. Our poll would also be submitted to the appropriate ethics review boards, likely to those involved with Toronto Public Health, to increase confidence in our methodology. 
 
-A sample implementation of such a poll, created using Google form, can be found [here](https://forms.gle/ATp937s5HqokqBr98). Due to the limitations of Google form, the order of questions is consistent for all respondents. In an idealized methodology with a more professional surveying platform, the question order would be randomized when being presented to different respondents, with consideration for related questions must be kept together. This will help reduce response order bias, which is when the answer to a question is affected by the order in which it appeared in the survey [@citeStantcheva]. In this idealized survey, it would address similar topics of that found in the previous study, but reach a larger audience with more in-depth questions. As a result, public health officials can use both statistical modelling, like done in this paper, as well as these types of surveys to address knowledge gaps, both at the employer  and consumer level, promoting improved public health in Toronto. 
+A sample implementation of such a poll, created using Google form, can be found [here](https://forms.gle/ATp937s5HqokqBr98). Due to the limitations of Google form, the order of questions is consistent for all respondents. In an idealized methodology with a more professional surveying platform, the question order would be randomized when being presented to different respondents, with consideration for related questions must be kept together. This will help reduce response order bias, which is when the answer to a question is affected by the order in which it appeared in the survey [@citeStantcheva]. In this idealized survey, it would address similar topics of that found in the previous study, but reach a larger audience with more in-depth questions. As a result, public health officials can use both statistical modelling, like done in this paper, as well as these types of surveys to exploit areas that are not well understood, both at the employer  and consumer level, promoting improved public health in Toronto. 
 
 ## Datasheet for Dataset {#sec-appendices-datasheet}
 
