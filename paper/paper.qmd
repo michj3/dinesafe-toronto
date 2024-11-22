@@ -58,7 +58,7 @@ head(dinesafe_data) |>
     align = "c"  # Center-align the columns
   )
 ```
-The dataset was cleaned analyzed using the statistical programming software R [@citeR] and packages such as tidyverse [@tidy], ggplot2 [@ggplot2], kable [@kable], opendatatoronto [@opendatatoronto], dplyr [@dplyr], arrow [@arrow], vgam [@vgam], testthat [@testthat], car [@car], and broom [@broom]. 
+The dataset was cleaned analyzed using the statistical programming software R [@citeR] and packages such as tidyverse [@tidy], ggplot2 [@ggplot2], kableExtra [@kable], opendatatoronto [@opendatatoronto], dplyr [@dplyr], arrow [@arrow], vgam [@vgam], testthat [@testthat], car [@car], and broom [@broom]. 
 
 ## Variables {#sec-data-variables}
 	
@@ -133,11 +133,11 @@ knitr::kable(
 )
 ```
 
-The variable focusing on food establishment type is a qualitative variable that contains the types of food establishments inspected, which include food trucks, serving kitchens, bar and cocktail lounges, and restaurants, to name a few. @fig-3 highlights the top ten most common food establishments in the dataset [@data] that have been inspected. The most common types are traditional restaurants, food take out services, and supermarkets that serve and prepare food. It is important to note this, as we will later examine how different types of food establishments may correlate with the severity level of their violations.
+The variable focusing on food establishment type is a qualitative variable that contains the types of food establishments inspected, which include food trucks, serving kitchens, bar and cocktail lounges, and restaurants, to name a few. This variable has been further cleaned into five main categories. Details are in @sec-appendices-datacleaning.  @fig-3 highlights the most to least frequented food establishment types in the dataset [@data] that have been inspected. The most common food establishment type that has been inspected and in the dataset [@data] are formal dining establishments, followed by fast food places. It is important to note this, as we will later examine how different types of food establishments may correlate with the severity level of their violations.
 
 ```{r}
 #| label: fig-3
-#| fig-cap: "Top 10 most frequent food establishment types inspected through DineSafe in Toronto"
+#| fig-cap: "Most to least frequented food establishment types inspected through DineSafe in Toronto"
 #| echo: false
 
 top_establishments <- dinesafe_data |>
