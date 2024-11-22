@@ -58,7 +58,7 @@ head(dinesafe_data) |>
     align = "c"  # Center-align the columns
   )
 ```
-The dataset was cleaned analyzed using the statistical programming software R [@citeR] and packages such as tidyverse [@tidy], ggplot2 [@ggplot2], kableExtra [@kable], opendatatoronto [@opendatatoronto], dplyr [@dplyr], arrow [@arrow], vgam [@vgam], testthat [@testthat], car [@car], and broom [@broom]. 
+The dataset was cleaned analyzed using the statistical programming software R [@citeR] and packages such as tidyverse [@tidy], ggplot2 [@ggplot2], kableExtra [@kable], opendatatoronto [@opendatatoronto], dplyr [@dplyr], arrow [@arrow], VGAM [@vgam], testthat [@testthat], car [@car], and broom [@broom]. 
 
 ## Variables {#sec-data-variables}
 	
