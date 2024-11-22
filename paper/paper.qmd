@@ -58,7 +58,7 @@ head(dinesafe_data) |>
     align = "c"  # Center-align the columns
   )
 ```
-The dataset was cleaned analyzed using the statistical programming software R and packages such as tidyverse [@tidy], ggplot2 [@ggplot2], kable [@kable], opendatatoronto [@opendatatoronto], dplyr [@dplyr], arrow [@arrow], vgam [@vgam], testthat [@testthat], car [@car], and broom [@broom]. 
+The dataset was cleaned analyzed using the statistical programming software R [@citeR] and packages such as tidyverse [@tidy], ggplot2 [@ggplot2], kable [@kable], opendatatoronto [@opendatatoronto], dplyr [@dplyr], arrow [@arrow], vgam [@vgam], testthat [@testthat], car [@car], and broom [@broom]. 
 
 ## Variables {#sec-data-variables}
 	
@@ -261,7 +261,7 @@ log_odds <- log(fitted_probs[, 1] / fitted_probs[, 3])
 plot(dinesafe_data$min_inspections, log_odds, 
      xlab = "min_inspections", ylab = "Predicted Log-Odds")
 ```
-One thing to note is the distinct observations that form almost vertical lines. This should not be of concern, as there are only three possible values of minimum inspections and are integers: 1, 2, and 3. The overall trend of this plot is linear, which we can conclude this assumption holds. To check for multicollinearity, we need to first convert the food establishment type variable into a dummy variable, holding it as a “numerical” value instead of categorical. Then, we can use the cor() function to look at correlation and thus, multicollinearity. The values of correlation between the variables are in @fig-5 in @sec-appendices-figures. The variables do not seem to have high correlation with each other, indicating that our model likely does not have severe multicollinearity and its conclusions can be treated as valid. Finally, it’s important to note that for a model to be valid, there needs to be sufficient sample size. Our model uses a dataset [@data] that has over 18,000 observations, so sample size is not a concern for model validity.
+One thing to note is the distinct observations that form almost vertical lines. This should not be of concern, as there are only three possible values of minimum inspections and are integers: 1, 2, and 3. The overall trend of this plot is linear, which we can conclude this assumption holds. To check for multicollinearity, we need to first convert the food establishment type variable into a dummy variable, holding it as a “numerical” value instead of categorical. Then, we can use the cor() function to look at correlation and thus, multicollinearity. The values of correlation between the variables are in @fig-8 in @sec-appendices-figures. The variables do not seem to have high correlation with each other, indicating that our model likely does not have severe multicollinearity and its conclusions can be treated as valid. Finally, it’s important to note that for a model to be valid, there needs to be sufficient sample size. Our model uses a dataset [@data] that has over 18,000 observations, so sample size is not a concern for model validity.
 
 ## Model Limitations {#sec-model-limitations}
 
