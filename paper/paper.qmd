@@ -406,7 +406,7 @@ While all cities have similar programs to inspect public health and sanitation m
 
 ## Data cleaning {#sec-appendices-datacleaning}
 
-For the purpose of more simplistic modeling and easier interpretation, additional data cleaning steps were taken. After selecting for the variables of interest, food establishments were categorized into five categories. Before categorization, there were 46 types of food establishments. When modeling, this would translate to 46 categorical levels of the food establishment type variable, which would be too complex and redundant to interpret. As a result, the 46 types were organized into five types and shown below. 
+For the purpose of more simplistic modeling and easier interpretation, additional data cleaning steps were taken. After selecting for the variables of interest, food establishments were categorized into five categories. Before categorization, there were 46 types of food establishments. When modeling, this would translate to 46 categorical levels of the food establishment type variable, which would be too complex and redundant to interpret. As a result, the 46 types were organized into five types and shown below.
 
 - Formal dining: restaurant, cocktail bar/beverage room, bakery, bake shop
 
@@ -414,7 +414,7 @@ For the purpose of more simplistic modeling and easier interpretation, additiona
 
 - Grocery: supermarket, fish shop, butcher shop, food store, food vending, flea market
 
-- Institutional food preparation: college/uni food services, child care, institutional food service, cafeteria priv, cafeteria public, student nutrition site, secondary school food services, child care food prep, hospitals and health facilities, elementary school food services, hospital and health facilities, church banquet facility,  Other Educational Facility Food Services, rest home, nursing home, serving kitchen, community kitchen, food caterer, boarding/lodging, food bank, serving kitchen, private club, centralized kitchen, retirement homes, commissary
+- Institutional food preparation: college/university food services, child care, institutional food service, cafeteria private, cafeteria public, student nutrition site, secondary school food services, child care food preparation, hospitals and health facilities, elementary school food services, hospital and health facilities, church banquet facility,  other educational facility food services, rest home, nursing home, serving kitchen, community kitchen, food caterer, boarding/lodging, food bank, serving kitchen, private club, centralized kitchen, retirement homes, commissary
 
 - Industrial: food processing plant, food depot
 
